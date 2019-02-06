@@ -3,16 +3,16 @@ var tableData = data;
 
 // YOUR CODE HERE!
 // Get references to the tbody element, input field and button
-let $tbody = document.querySelector("tbody");
-let $dateInput = document.querySelector("#datetime");
-let $cityInput = document.querySelector("#city");
-let $stateInput = document.querySelector("#state");
-let $countryInput = document.querySelector("#country");
-let $shapeInput = document.querySelector("#shape");
-let $searchButton = document.querySelector("#search");
+var $tbody = document.querySelector("tbody");
+var $dateInput = document.querySelector("#datetime");
+var $cityInput = document.querySelector("#city");
+var $stateInput = document.querySelector("#state");
+var $countryInput = document.querySelector("#country");
+var $shapeInput = document.querySelector("#shape");
+var $searchButton = document.querySelector("#search");
 
-// Add an event listener to the searchButton, call handleSearchButtonClick when clicked
-$searchButton.addEventListener("click", handleSearchButtonClick);
+// Add an event listener to the searchButton, call handleClick when clicked
+$searchButton.addEventListener("click", handleClick);
 
 // renderTable renders the tableData to the tbody
 function renderTable() {
@@ -26,15 +26,13 @@ function renderTable() {
       // Create a new row in the tbody, set the index to be i + startingIndex
       var $row = $tbody.insertRow(i);
       for (var j = 0; j < field.length; j++) {
-        // For every field in the ufo object, create a new cell and set its inner text to be the current value 
-        //textd to be the current value at the current info field
         var field = fields[j];
         var $cell = $row.insertCell(j);
         $cell.innerText = ufo[field];
       }
     }   
 }
-function handleSearchButtonClick() {
+function handleClick() {
     // Format user search by removing whitespace, lowercase the string
     var filterDate = $dateInput.value.trim();
     var filterCity = $cityInput.value.trim().toLowerCase();
